@@ -117,7 +117,7 @@ It is advised that kadmin_local is used for rapid unpacked iteration, other task
 
 ###Change a password:
 ```python
-princ = kadm.get_princ("user@EXAMPLE.COM")
+princ = kadm.getprinc("user@EXAMPLE.COM")
 princ.change_password("correcthorsebatterystaple")
 ```
 
@@ -174,6 +174,7 @@ kadm = kadmin.init_with_password('user/admin@EXAMPLE.COM', 'givenpassword')
     kadm.delprinc('user/host.domain@EXAMPLE.COM')
 #  principal_exists -> check if exists a principal with given name
     if kadm.principal_exists('user/admin@EXAMPLE.COM'):
+        ....
 #  getprinc, get_principal -> get a principal instance as a python object
     princ = kadm.getprinc('user/admin@EXAMPLE.COM')
     help(princ)
@@ -197,7 +198,7 @@ kadm = kadmin.init_with_password('user/admin@EXAMPLE.COM', 'givenpassword')
     for pol in pols:
       print pol
 #  renprinc, rename_principal -> rename a principal with give name
-    kadm.renprinc('oldname/admin@EXAMPLE.COM', 'newname/admin@EXAMPLE.COM')s
+    kadm.renprinc('oldname/admin@EXAMPLE.COM', 'newname/admin@EXAMPLE.COM')
 #  ktadd, xst -> create keytab
     user = kadm.getprinc('user/admin@EXAMPLE.COM')
     user.ktadd('/tmp/user.keytab') # return True or False
