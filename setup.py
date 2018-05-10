@@ -20,13 +20,13 @@ include_dirs = ["/usr/include", "/usr/include/et"]
 if platform.system() == 'Darwin':
     include_dirs += ['/usr/local/include', '/usr/local/include/et']
 
-setup(name='python-kadmin',
-      version='0.1.1',
+setup(name='python-kadmV',
+      version='0.1.4',
       description='Python module for kerberos admin (kadm5)',
-      url='https://github.com/russjancewicz/python-kadmin',
-      download_url='https://github.com/russjancewicz/python-kadmin/tarball/v0.1.1',
-      author='Russell Jancewicz',
-      author_email='russell.jancewicz@gmail.com',
+      url='https://github.com/xianglei/python-kadmin',
+      download_url='https://github.com/xianglei/python-kadmin/tarball/v0.1.4',
+      author='xianglei',
+      author_email='horseman@163.com',
       license='MIT',
       ext_modules=[
           Extension(
@@ -63,13 +63,13 @@ setup(name='python-kadmin',
           ]
       )
 
-setup(name='python-kadmin-local',
-      version='0.1.1',
+setup(name='python-kadmV-local',
+      version='0.1.4',
       description='Python module for kerberos admin (kadm5) via root local interface',
-      url='https://github.com/russjancewicz/python-kadmin',
-      download_url='https://github.com/russjancewicz/python-kadmin/tarball/v0.1.1',
-      author='Russell Jancewicz',
-      author_email='russell.jancewicz@gmail.com',
+      url='https://github.com/xianglei/python-kadmin',
+      download_url='https://github.com/xianglei/python-kadmin/tarball/v0.1.4',
+      author='xianglei',
+      author_email='horseman@163.com',
       license='MIT',
       ext_modules=[
           Extension(
