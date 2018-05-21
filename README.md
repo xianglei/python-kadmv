@@ -2,15 +2,20 @@ python-kadmin
 =============
 
 Python module for kerberos admin (kadm5)
+
 Based on https://github.com/rjancewicz/python-kadmin
 
 Added method:
+
 ktadd / xst -> Add keytab export
+
 renprinc / rename_principal -> Rename a principal
 
 Fixed:
 GCC5 compile issue
+
 pykadmin_pydatetime_from_timestamp undefined symbol compile error
+
 MacOSX compatibility
 
 ## Initilization
