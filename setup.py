@@ -21,10 +21,10 @@ if platform.system() == 'Darwin' or platform.system() == 'FreeBSD':
     include_dirs += ['/usr/local/include', '/usr/local/include/et']
 
 setup(name='python-kadmV',
-      version='0.1.4',
+      version='0.1.5',
       description='Python module for kerberos admin (kadm5)',
       url='https://github.com/xianglei/python-kadmv',
-      download_url='https://github.com/xianglei/python-kadmv/tarball/v0.1.4',
+      download_url='https://github.com/xianglei/python-kadmv/tarball/v0.1.5',
       author='xianglei',
       author_email='horseman@163.com',
       license='MIT',
@@ -64,10 +64,10 @@ setup(name='python-kadmV',
       )
 
 setup(name='python-kadmV-local',
-      version='0.1.4',
+      version='0.1.5',
       description='Python module for kerberos admin (kadm5) via root local interface',
       url='https://github.com/xianglei/python-kadmv',
-      download_url='https://github.com/xianglei/python-kadmv/tarball/v0.1.4',
+      download_url='https://github.com/xianglei/python-kadmv/tarball/v0.1.5',
       author='xianglei',
       author_email='horseman@163.com',
       license='MIT',
