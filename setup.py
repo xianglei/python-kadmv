@@ -17,7 +17,7 @@ if newer('./src/getdate.y', './src/getdate.c'):
     execute(spawn, (['bison', '-y', '-o', './src/getdate.c', './src/getdate.y'],))
 
 include_dirs = ["/usr/include", "/usr/include/et"]
-if platform.system() == 'Darwin':
+if platform.system() == 'Darwin' or platform.system() == 'FreeBSD':
     include_dirs += ['/usr/local/include', '/usr/local/include/et']
 
 setup(name='python-kadmV',
