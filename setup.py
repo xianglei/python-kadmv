@@ -24,7 +24,7 @@ if platform.system() == 'Darwin' or platform.system() == 'FreeBSD':
     include_dirs += ['/usr/local/include', '/usr/local/include/et']
 
 setup(name='python-kadmV',
-      version='0.1.5',
+      version='0.1.6',
       description='Python module for kerberos admin (kadm5)',
       url='https://github.com/xianglei/python-kadmv',
       download_url='https://github.com/xianglei/python-kadmv/tarball/v0.1.5',
