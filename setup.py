@@ -24,7 +24,7 @@ if platform.system() == 'Darwin' or platform.system() == 'FreeBSD':
     include_dirs += ['/usr/local/include', '/usr/local/include/et']
 
 setup(name='python-kadmV',
-      version='0.1.6',
+      version='0.1.7',
       description='Python module for kerberos admin (kadm5)',
       long_description_content_type="text/markdown",
       url='https://github.com/xianglei/python-kadmv',
