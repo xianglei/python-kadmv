@@ -26,6 +26,7 @@ if platform.system() == 'Darwin' or platform.system() == 'FreeBSD':
 setup(name='python-kadmV',
       version='0.1.6',
       description='Python module for kerberos admin (kadm5)',
+      long_description_content_type="text/markdown",
       url='https://github.com/xianglei/python-kadmv',
       download_url='https://github.com/xianglei/python-kadmv/tarball/v0.1.5',
       author='xianglei',
