@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import platform
-from distutils.core import setup, Extension
+try:
+    from setuptools import setup, Extension
+except ImportError:
+    from distutils.core import setup, Extension
 from distutils.util import execute, newer
 from distutils.spawn import spawn
 
@@ -28,6 +31,7 @@ setup(name='python-kadmV',
       author='xianglei',
       author_email='horseman@163.com',
       license='MIT',
+      setup_requires=['wheel'],
       ext_modules=[
           Extension(
               "kadmin",
@@ -45,33 +49,36 @@ setup(name='python-kadmV',
                   "src/getdate.c"
                   ],
               #extra_compile_args=["-O0"]
-              extra_compile_args=["--std=gnu89"]
-              )
-          ],
-      classifiers=[
-          "Development Status :: 4 - Beta",
-          "Environment :: Console",
-          "Intended Audience :: System Administrators",
-          "Intended Audience :: Developers",
-          "Operating System :: POSIX",
-          "Programming Language :: C",
-          "Programming Language :: Python",
-          "Programming Language :: YACC",
-          "License :: OSI Approved :: MIT License",
-          "Topic :: Software Development :: Libraries :: Python Modules",
-          "Topic :: System :: Systems Administration :: Authentication/Directory",
-          ]
-      )
+#
+#               extra_compile_args=["--std=gnu89"]
+#               )
+#           ],
+#       classifiers=[
+#           "Development Status :: 4 - Beta",
+#           "Environment :: Console",
+#           "Intended Audience :: System Administrators",
+#           "Intended Audience :: Developers",
+#           "Operating System :: POSIX",
+#           "Programming Language :: C",
+#           "Programming Language :: Python",
+#           "Programming Language :: YACC",
+#           "License :: OSI Approved :: MIT License",
+#           "Topic :: Software Development :: Libraries :: Python Modules",
+#           "Topic :: System :: Systems Administration :: Authentication/Directory",
+#           ]
+#       )
 
-setup(name='python-kadmV-local',
-      version='0.1.5',
-      description='Python module for kerberos admin (kadm5) via root local interface',
-      url='https://github.com/xianglei/python-kadmv',
-      download_url='https://github.com/xianglei/python-kadmv/tarball/v0.1.5',
-      author='xianglei',
-      author_email='horseman@163.com',
-      license='MIT',
-      ext_modules=[
+# setup(name='python-kadmV-local',
+#       version='0.1.5',
+#       description='Python module for kerberos admin (kadm5) via root local interface',
+#       url='https://github.com/xianglei/python-kadmv',
+#       download_url='https://github.com/xianglei/python-kadmv/tarball/v0.1.5',
+#       author='xianglei',
+#       author_email='horseman@163.com',
+#       license='MIT',
+#       ext_modules=[
+#
+          ),
           Extension(
               "kadmin_local",
               libraries=["krb5", "kadm5srv", "kdb5"],

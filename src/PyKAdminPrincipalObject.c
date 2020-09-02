@@ -357,6 +357,23 @@ static PyObject *PyKAdminPrincipal_unlock(PyKAdminPrincipalObject *self) {
 }
 
 
+static PyObject *PyKAdminPrincipal_delete(PyKAdminPrincipalObject *self) {
+
+    PyObject *result   = Py_True;
+    kadm5_ret_t retval = KADM5_OK;
+
+    retval = kadm5_delete_principal(self->kadmin->server_handle, self->entry.principal);
+    if (retval != KADM5_OK) {
+        PyKAdminError_raise_error(retval, "kadm5_delete_principal");
+        result = NULL;
+    }
+
+    PyKAdminPrincipalObject_destroy(self);
+    Py_XINCREF(result);
+    return result;
+}
+
+
 static PyObject *PyKAdminPrincipal_change_password(PyKAdminPrincipalObject *self, PyObject *args, PyObject *kwds) {
 
     PyObject *result   = Py_True;
@@ -1025,6 +1042,7 @@ static PyObject *PyKAdminPrincipal_modify(PyKAdminPrincipalObject *self, PyObjec
 
 static char kDOCSTRING_COMMIT[]          = "commit()\n\tCommit all staged changes to the kerberos database.";
 static char kDOCSTRING_CPW[]             = "change_password(str)\n\tChange the password for the given principal.";
+static char kDOCSTRING_DELETE[]          = "delete()\n\tDelete the given principal.";
 static char kDOCSTRING_RANDKEY[]         = "randkey()\n\tRandomize the key for the given principal.";
 static char kDOCSTRING_RELOAD[]          = "reload()\n\tReload the local entry from the kerberos database.";
 static char kDOCSTRING_UNLOCK[]          = "unlock()\n\tUnlock the principal.";
@@ -1056,11 +1074,12 @@ static PyMethodDef PyKAdminPrincipal_methods[] = {
     {"randkey",         (PyCFunction)PyKAdminPrincipal_randomize_key,    METH_NOARGS,   kDOCSTRING_RANDKEY},
     {"randomize_key",   (PyCFunction)PyKAdminPrincipal_randomize_key,    METH_NOARGS,   kDOCSTRING_RANDKEY},
 
-    {"modify",           (PyCFunction)PyKAdminPrincipal_modify,            METH_KEYWORDS, kDOCSTRING_MODIFY},
+    {"modify",           (PyCFunction)PyKAdminPrincipal_modify,            METH_VARARGS | METH_KEYWORDS, kDOCSTRING_MODIFY},
 
     {"commit",           (PyCFunction)PyKAdminPrincipal_commit,           METH_NOARGS,   kDOCSTRING_COMMIT},
     {"reload",           (PyCFunction)PyKAdminPrincipal_reload,           METH_NOARGS,   kDOCSTRING_RELOAD},
     {"unlock",           (PyCFunction)PyKAdminPrincipal_unlock,           METH_NOARGS,   kDOCSTRING_UNLOCK},
+    {"delete",           (PyCFunction)PyKAdminPrincipal_delete,           METH_NOARGS,   kDOCSTRING_DELETE},
 
     {"set_flags",        (PyCFunction)PyKAdminPrincipal_set_attributes,   METH_VARARGS,  kDOCSTRING_SET_FLAGS},
     {"unset_flags",      (PyCFunction)PyKAdminPrincipal_unset_attributes, METH_VARARGS,  kDOCSTRING_UNSET_FLAGS},
